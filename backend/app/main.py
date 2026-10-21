@@ -8,13 +8,14 @@ from app.api.trip import router as trip_router
 
 app = FastAPI(
     title="Smart AI Travel Planner API",
-    version="1.0.0"
+    version="1.0.0",
 )
 
 app.add_middleware(
     CORSMiddleware,
     allow_origins=[
         "http://localhost:5173",
+        "https://cpastone.vercel.app",
     ],
     allow_credentials=True,
     allow_methods=["*"],
@@ -29,6 +30,4 @@ app.include_router(trip_router)
 
 @app.get("/")
 def root():
-    return {
-        "message": "Database Connected Successfully 🚀"
-    }
+    return {"message": "Database Connected Successfully 🚀"}
