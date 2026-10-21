@@ -1,0 +1,275 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-sans: 'Inter', times, sans-serif;
+    --font-display: 'Playfair Display', serif;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  .font-display {
+    font-family: var(--font-display);
+  }
+}
+
+  /* Trip date picker */
+  .trip-calendar {
+    border: 0 !important;
+    border-radius: 18px !important;
+    overflow: hidden;
+    box-shadow: 0 18px 45px rgba(15, 23, 42, 0.16);
+    padding: 8px;
+  }
+
+  .trip-calendar .react-datepicker__header {
+    background: #f8fafc;
+    border-bottom: 0;
+    padding-top: 8px;
+  }
+
+  .trip-calendar-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 4px 4px 12px;
+    color: #0f172a;
+  }
+
+  .trip-calendar-header strong {
+    font-size: 0.9rem;
+    font-weight: 800;
+  }
+
+  .trip-calendar-title {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+
+  .trip-calendar-title select {
+    border: 0;
+    border-radius: 6px;
+    background: #ccfbf1;
+    color: #115e59;
+    font-size: 0.75rem;
+    font-weight: 800;
+    padding: 3px 4px;
+    outline: none;
+    cursor: pointer;
+  }
+
+  .trip-calendar-header button {
+    display: grid;
+    place-items: center;
+    width: 28px;
+    height: 28px;
+    border: 0;
+    border-radius: 8px;
+    color: #0f766e;
+    background: #ccfbf1;
+    cursor: pointer;
+  }
+
+  .trip-calendar-header button:hover:not(:disabled) {
+    background: #99f6e4;
+  }
+
+  .trip-calendar-header button:disabled {
+    opacity: 0.35;
+    cursor: default;
+  }
+
+  .trip-calendar .react-datepicker__day {
+    border-radius: 9px;
+    line-height: 2rem;
+  }
+
+  .trip-calendar .react-datepicker__day--selected,
+  .trip-calendar .react-datepicker__day--keyboard-selected {
+    background: #0f766e;
+    color: white;
+  }
+
+  .trip-calendar .react-datepicker__day--in-range {
+    background: #ccfbf1;
+    color: #115e59;
+  }
+
+  .trip-calendar .react-datepicker__today-button {
+    border-top: 1px solid #e2e8f0;
+    color: #0f766e;
+    font-weight: 700;
+    padding: 8px;
+  }
+
+/* Leaflet Map */
+.leaflet-container {
+  width: 100%;
+  height: 100%;
+  border-radius: 1rem;
+  z-index: 1;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+::-webkit-scrollbar-thumb {
+  background: #dc2929;
+  border-radius: 3px;
+}
+.dark ::-webkit-scrollbar-track {
+  background: #1e293b;
+}
+.dark ::-webkit-scrollbar-thumb {
+  background: #818cf8;
+}
+
+/* Gradient text */
+.gradient-text {
+  background: linear-gradient(135deg, #0f766e, #16a34a, #f97316);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.gradient-text-gold {
+  background: linear-gradient(135deg, #f59e0b, #ef4444, #ec4899);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Glass morphism */
+.glass {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.glass-dark {
+  background: rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Animations */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 20px rgba(20, 184, 166, 0.35); }
+  50% { box-shadow: 0 0 40px rgba(249, 115, 22, 0.55); }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+@keyframes gradient-shift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+.animate-gradient {
+  background-size: 200% 200%;
+  animation: gradient-shift 4s ease infinite;
+}
+
+.shimmer {
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+.dark .shimmer {
+  background: linear-gradient(90deg, #1e293b 25%, #334155 50%, #1e293b 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+/* Card hover effects */
+.card-hover {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.card-hover:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+/* Typing animation */
+@keyframes typing {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+@keyframes blink {
+  50% { border-color: transparent; }
+}
+
+/* Hero background pattern */
+.hero-pattern {
+  background-image: 
+    radial-gradient(circle at 20% 50%, rgba(20, 184, 166, 0.16) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(249, 115, 22, 0.14) 0%, transparent 50%),
+    radial-gradient(circle at 50% 80%, rgba(22, 163, 74, 0.14) 0%, transparent 50%);
+}
+
+/* Loading dots */
+@keyframes bounce-dot {
+  0%, 80%, 100% { transform: scale(0); }
+  40% { transform: scale(1); }
+}
+
+.loading-dot {
+  animation: bounce-dot 1.4s ease-in-out infinite;
+}
+.loading-dot:nth-child(1) { animation-delay: 0s; }
+.loading-dot:nth-child(2) { animation-delay: 0.16s; }
+.loading-dot:nth-child(3) { animation-delay: 0.32s; }
+
+/* India flag colors accent */
+.india-accent {
+  background: linear-gradient(135deg, #FF9933, #FFFFFF, #138808);
+}
+
+/* Saffron gradient */
+.saffron-gradient {
+  background: linear-gradient(135deg, #FF9933 0%, #FF6B35 50%, #E84A2F 100%);
+}
+
+/* Tricolor border */
+.tricolor-border {
+  border-image: linear-gradient(to right, #FF9933, #FFFFFF, #138808) 1;
+}

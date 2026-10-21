@@ -1,0 +1,17 @@
+# Dependencies
+node_modules/
+backend/venv/
+venv/
+.venv/
+env/
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Environment files (contain secrets)
+.env
+backend/.env
+
+# Build output
+dist/
